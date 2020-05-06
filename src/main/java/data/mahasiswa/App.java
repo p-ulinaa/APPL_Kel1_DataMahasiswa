@@ -1,5 +1,7 @@
 package data.mahasiswa;
 
+import java.util.Scanner;
+
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,4 +21,10 @@ public class App {
 			System.out.println("---------------");
 			context.close();
 	}
+	
+	public static void A() {
+		System.out.println("--------------------");
+	}
 }
+
+

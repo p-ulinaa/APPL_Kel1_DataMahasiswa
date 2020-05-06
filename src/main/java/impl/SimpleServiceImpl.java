@@ -42,6 +42,7 @@ public class SimpleServiceImpl implements SimpleService {
 
  	public boolean createMahasiswa(String nim,String nama,int semester, String jurusan, String alamat) {
 	 	String idMahasiswa = new ObjectId().toString();
+	 	
 	 	try {
 		 	Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester,jurusan, alamat);
 		 	mahasiswaCollection.insertOne(mahasiswa);
