@@ -11,8 +11,6 @@
 		class="impl.SimpleServiceImpl">
 	</bean>
 
-	 <bean id="doBeforeAspect"
-		class="aspect.DoBeforeAspect" />
 
 	 <bean id="createOperationAspect"
 		class="aspect.createOperationAspect" />
