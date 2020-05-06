@@ -9,8 +9,6 @@
 
 	<bean id="simpleServiceBean"
 		class="com.javacodegeeks.snippets.enterprise.impl.SimpleServiceImpl">
-		<property name="name" value="Hello" />
-		<property name="id" value="12345" />
 	</bean>
 
 	 <bean id="doBeforeAspect"
