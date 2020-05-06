@@ -8,22 +8,22 @@
 	<!--  <aop:aspectj-autoproxy />  -->
 
 	<bean id="simpleServiceBean"
-		class="com.javacodegeeks.snippets.enterprise.impl.SimpleServiceImpl">
+		class="impl.SimpleServiceImpl">
 	</bean>
 
 	 <bean id="doBeforeAspect"
-		class="com.javacodegeeks.snippets.enterprise.aspect.DoBeforeAspect" />
+		class="aspect.DoBeforeAspect" />
 
 	 <bean id="doAfterAspect"
-		class="com.javacodegeeks.snippets.enterprise.aspect.DoAfterAspect" />
+		class="aspect.DoAfterAspect" />
 
 	<bean id="doAfterReturningAspect"
-		class="com.javacodegeeks.snippets.enterprise.aspect.DoAfterReturningAspect" />
+		class="aspect.DoAfterReturningAspect" />
 
 		<bean id="doAfterThrowingAspect"
-		class="com.javacodegeeks.snippets.enterprise.aspect.DoAfterThrowingAspect" />
+		class="aspect.DoAfterThrowingAspect" />
 
-	<bean id="doAroundAspect" class="com.javacodegeeks.snippets.enterprise.aspect.DoAroundAspect" /> 
+	<bean id="doAroundAspect" class="aspect.DoAroundAspect" /> 
  
 	<aop:config>
 
