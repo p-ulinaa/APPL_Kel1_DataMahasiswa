@@ -8,17 +8,14 @@ import java.util.Objects;
 
 public class Mahasiswa{
 	
-    private ObjectId id;
-    @BsonProperty(value = "idMahasiswa")
-    
-    private Double idMahasiswa;
+    private String idMahasiswa;
     private String nim;
     private String nama;
     private int semester;
     private String jurusan;
     private String alamat;
 
-    public Mahasiswa(final Double idMahasiswa, final String nim, final String nama, final int semester, final String jurusan, final String alamat) {
+    public Mahasiswa(String idMahasiswa, final String nim, final String nama, final int semester, final String jurusan, final String alamat) {
         super();
 
         this.idMahasiswa = idMahasiswa;
@@ -28,20 +25,12 @@ public class Mahasiswa{
         this.jurusan = jurusan;
         this.alamat = alamat;
     }
-    public ObjectId getId() {
-        return id;
-    }
-
-    public Mahasiswa setId(ObjectId id) {
-        this.id = id;
-        return this;
-    }
     
-    public Double getIdMahasiswa() {
+    public String getIdMahasiswa() {
 		return idMahasiswa;
 	}
 
-	public void setIdMahasiswa(final Double idMahasiswa) {
+	public void setIdMahasiswa(final String idMahasiswa) {
 		this.idMahasiswa = idMahasiswa;
     }
     

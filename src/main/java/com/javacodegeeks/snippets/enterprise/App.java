@@ -9,10 +9,10 @@ public class App {
 	
 			ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 			SimpleService simpleService = (SimpleService) context.getBean("simpleServiceBean");
-			//simpleService.printNameId();
+			//
 			System.out.println("---------------");
 			try{
-				//simpleService.checkName();
+				simpleService.createMahasiswa("18152401", "Alvira", 4, "Teknik Informatika", "Bandung");
 			} catch(Exception e){
 				System.out.println("SimpleService checkName() : Exception thrown..");
 			}
