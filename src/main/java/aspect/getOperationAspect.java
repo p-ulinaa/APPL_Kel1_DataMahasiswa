@@ -1,17 +1,24 @@
 package aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
+	 
+	@Aspect
+	public class getOperationAspect {
+	 
+		@Around("execution(* data.mahasiswa.SimpleService.createMahasiswa(..))")
+		public void doAround(ProceedingJoinPoint joinPoint) throws Throwable {
 
-@Aspect
-public class getOperationAspect {
+			System.out.println("Task\t: " + joinPoint.getSignature().getName());
 
-	@Before("execution(* data.mahasiswa.SimpleService.createData(..))")
-	public void doBefore(JoinPoint joinPoint) {
-
-		System.out.println("***AspectJ*** DoBefore() is running!! intercepted : "
-						+ joinPoint.getSignature().getName());
+			System.out.println("Message\t: Getting Data ...");
+			joinPoint.proceed(); // continue on the intercepted method
+			
+			System.out.println("Message\t: Data Displayed");
+		}
+	 
 	}
 
-}
