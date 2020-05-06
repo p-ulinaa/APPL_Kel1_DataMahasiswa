@@ -8,7 +8,7 @@ import org.aspectj.weaver.ast.Call;
 import org.aspectj.lang.annotation.After;
 
 	@Aspect
-	public class DoAfterAspect {
+	public class createOperationAspect {
 	 
 		@After("execution(* data.mahasiswa.SimpleService.createMahasiswa(..))")
 		public void doAfter(JoinPoint joinPoint) {
