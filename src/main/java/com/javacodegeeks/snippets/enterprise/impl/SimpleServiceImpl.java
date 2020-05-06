@@ -1,6 +1,7 @@
 package com.javacodegeeks.snippets.enterprise.impl;
 
 import com.javacodegeeks.snippets.enterprise.SimpleService;
+import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -16,6 +17,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class SimpleServiceImpl implements SimpleService {
 	MongoDatabase dataMahasiswaDB;
@@ -24,8 +29,10 @@ public class SimpleServiceImpl implements SimpleService {
 
 	 Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
         try (MongoClient mongoClient = MongoClients.create("mongodb+srv://uli:231407Jerapah99.@firstcluster-6mqrj.mongodb.net/test")) {
+        	CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
+                    fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 
-            dataMahasiswaDB = mongoClient.getDatabase("datamahasiswa");
+            dataMahasiswaDB = mongoClient.getDatabase("datamahasiswa").withCodecRegistry(pojoCodecRegistry);
             MahasiswaCollection = dataMahasiswaDB.getCollection("mahasiswaCollection", Mahasiswa.class);
 
         }
