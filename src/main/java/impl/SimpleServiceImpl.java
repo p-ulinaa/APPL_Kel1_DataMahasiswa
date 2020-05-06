@@ -41,14 +41,38 @@ public class SimpleServiceImpl implements SimpleService {
  		mahasiswaCollection = database.getCollection("mahasiswaCollection", Mahasiswa.class);
  		database = database.withCodecRegistry(pojoCodecRegistry);
  	}
-
- 	public void createMahasiswa(String nim,String nama,int semester, String jurusan, String alamat) {
-	 	String idMahasiswa = new ObjectId().toString();
-	 	
-		 	Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester,jurusan, alamat);
+ 	
+ 	@Override
+ 	public void createMahasiswa() {
+		 	Mahasiswa mahasiswa = insertMahasiswa();
 		 	mahasiswaCollection.insertOne(mahasiswa);
 	
 	}
+ 	
+ 	public Mahasiswa insertMahasiswa() {
+ 		Scanner sc = new Scanner(System.in);
+ 		String idMahasiswa = new ObjectId().toString();
+ 		String nim;
+ 		String nama; 
+ 		int semester;
+ 		String jurusan;
+ 		String alamat;
+ 		
+ 		System.out.print("nama     : ");
+ 		nama = sc.next();
+ 		System.out.print("nim      : ");
+ 		nim  = sc.next();
+ 		System.out.print("semester : ");
+ 		semester = sc.nextInt();
+ 		System.out.print("jurusan  : ");
+ 		jurusan = sc.next();
+ 		System.out.print("alamat   : ");
+ 		alamat = sc.next();
+ 		
+ 		Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester, jurusan, alamat);
+ 		return mahasiswa;
+ 		
+ 	}
  	public void getMahasiswa() {		
 	 	int i = 1;
 		FindIterable<Mahasiswa> mahasiswaIterable = mahasiswaCollection.find();		
@@ -63,5 +87,7 @@ public class SimpleServiceImpl implements SimpleService {
 			i++;
 		}		
  	}
+
+	
  	
 }
