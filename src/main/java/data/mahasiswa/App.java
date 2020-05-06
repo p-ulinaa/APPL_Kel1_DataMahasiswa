@@ -1,4 +1,4 @@
-package com.javacodegeeks.snippets.enterprise;
+package data.mahasiswa;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

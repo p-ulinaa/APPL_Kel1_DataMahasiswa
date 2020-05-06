@@ -1,6 +1,6 @@
-package com.javacodegeeks.snippets.enterprise.impl;
+package impl;
 
-import com.javacodegeeks.snippets.enterprise.SimpleService;
+import data.mahasiswa.SimpleService;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -24,16 +24,14 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class SimpleServiceImpl implements SimpleService {
 	MongoDatabase dataMahasiswaDB;
-	MongoCollection<Mahasiswa> MahasiswaCollection;
+	MongoCollection<Document> MahasiswaCollection;
 	public SimpleServiceImpl(){
 
 	 Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
         try (MongoClient mongoClient = MongoClients.create("mongodb+srv://uli:231407Jerapah99.@firstcluster-6mqrj.mongodb.net/test")) {
-        	CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
-                    fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-
-            dataMahasiswaDB = mongoClient.getDatabase("datamahasiswa").withCodecRegistry(pojoCodecRegistry);
-            MahasiswaCollection = dataMahasiswaDB.getCollection("mahasiswaCollection", Mahasiswa.class);
+        	
+            dataMahasiswaDB = mongoClient.getDatabase("datamahasiswa");
+            MahasiswaCollection = dataMahasiswaDB.getCollection("mahasiswaCollection");
 
         }
 	}
@@ -41,8 +39,8 @@ public class SimpleServiceImpl implements SimpleService {
 	public boolean createMahasiswa(String nim,String nama,int semester, String jurusan, String alamat) {
 		String idMahasiswa = new ObjectId().toString();
 		try {
-			Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester,jurusan, alamat);
-			MahasiswaCollection.insertOne(mahasiswa);
+			//Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester,jurusan, alamat);
+			//MahasiswaCollection.insertOne(mahasiswa);
 			System.out.println("[Account Created]");
 		} catch (Exception e) {
 			e.printStackTrace();

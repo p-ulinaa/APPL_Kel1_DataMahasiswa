@@ -1,4 +1,4 @@
-package com.javacodegeeks.snippets.enterprise.aspect;
+package aspect;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.javacodegeeks.snippets.enterprise;
+package data.mahasiswa;
 
 public interface SimpleService {
 	
