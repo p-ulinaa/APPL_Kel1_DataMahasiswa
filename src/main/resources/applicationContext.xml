@@ -14,34 +14,34 @@
 	 <bean id="doBeforeAspect"
 		class="aspect.DoBeforeAspect" />
 
-	 <bean id="doAfterAspect"
-		class="aspect.DoAfterAspect" />
+	 <bean id="createOperationAspect"
+		class="aspect.createOperationAspect" />
 
-	<bean id="doAfterReturningAspect"
-		class="aspect.DoAfterReturningAspect" />
+	<bean id="getOperationAspect"
+		class="aspect.getOperationAspect" />
 
 		<bean id="doAfterThrowingAspect"
 		class="aspect.DoAfterThrowingAspect" />
 
 	<bean id="doAroundAspect" class="aspect.DoAroundAspect" /> 
- 
+	
 	<aop:config>
-
-		<aop:aspect id="aspects" ref="doBeforeAspect">
-			<aop:pointcut id="pointCutBefore" expression="execution(* data.mahasiswa.SimpleService.createMahasiswa(..))"/>
-			<aop:after pointcut-ref="pointCutBefore" method="doBefore"/>
+		<aop:aspect ref="createOperationAspect">
+		<aop:around
+			pointcut="execution(* data.mahasiswa.SimpleService.createMahasiswa(..))"
+			method="doAround"/>
 		</aop:aspect>
-
-		<aop:aspect id="aspects" ref="doAfterAspect">
-			<aop:pointcut id="pointCutAfter" expression="execution(* data.mahasiswa.SimpleService.createMahasiswa(..))"/>
-			<aop:after pointcut-ref="pointCutAfter" method="doAfter"/>
-			
+	</aop:config> 
+	
+	<aop:config>
+		<aop:aspect id="aspects" ref="getOperationAspect">
+		<aop:around
+			pointcut="execution(* data.mahasiswa.SimpleService.getMahasiswa(..))"
+			method="doAround"/>
 		</aop:aspect>
-
-		<aop:aspect id="aspects" ref="doAfterReturningAspect">
-			
-		</aop:aspect>
-
+	</aop:config>
+	
+	<aop:config>
 		<aop:aspect id="aspects" ref="doAfterThrowingAspect">
 
 		</aop:aspect>
