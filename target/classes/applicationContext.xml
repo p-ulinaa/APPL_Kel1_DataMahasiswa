@@ -28,15 +28,14 @@
 	<aop:config>
 
 		<aop:aspect id="aspects" ref="doBeforeAspect">
-			
+			<aop:pointcut id="pointCutBefore" expression="execution(* data.mahasiswa.SimpleService.createMahasiswa(..))"/>
+			<aop:after pointcut-ref="pointCutBefore" method="doBefore"/>
 		</aop:aspect>
 
 		<aop:aspect id="aspects" ref="doAfterAspect">
 			<aop:pointcut id="pointCutAfter" expression="execution(* data.mahasiswa.SimpleService.createMahasiswa(..))"/>
 			<aop:after pointcut-ref="pointCutAfter" method="doAfter"/>
 			
-			<aop:pointcut id="pointCutAfter" expression="execution(* data.mahasiswa.App.A(..))"/>
-			<aop:after pointcut-ref="pointCutAfter" method="doAfter2"/>
 		</aop:aspect>
 
 		<aop:aspect id="aspects" ref="doAfterReturningAspect">

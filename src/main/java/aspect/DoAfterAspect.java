@@ -20,7 +20,7 @@ import org.aspectj.lang.annotation.After;
 	 
 		@After("execution(* data.mahasiswa.App.A(..))")
 		public void doAfter2(JoinPoint joinPoint) {
-			 /*public void menu() {
+			
 				//Scanner scanner = new Scanner(System.in);
 				System.out.println("--------------------");
 				System.out.println("Menu:");
@@ -28,7 +28,7 @@ import org.aspectj.lang.annotation.After;
 				System.out.println("2. ");
 				//int pilihan = scanner.nextInt();
 				System.out.println("--------------------");
-			}*/
+			
 		}
 	}
 	

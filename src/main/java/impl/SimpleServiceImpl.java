@@ -15,6 +15,7 @@ import org.bson.types.ObjectId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bson.codecs.configuration.CodecRegistry;
@@ -48,7 +49,6 @@ public class SimpleServiceImpl implements SimpleService {
 		 	mahasiswaCollection.insertOne(mahasiswa);
 	
 	}
- 	
  	public void getMahasiswa() {		
 	 	int i = 1;
 		FindIterable<Mahasiswa> mahasiswaIterable = mahasiswaCollection.find();		

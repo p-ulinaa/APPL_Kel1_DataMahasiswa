@@ -14,8 +14,8 @@ public class App {
 			
 			System.out.println("---------------");
 			try{
-				//simpleService.createMahasiswa("18152401", "Alvira", 4, "Teknik Informatika", "Bandung");
-				simpleService.getMahasiswa();
+				simpleService.createMahasiswa("18152401", "Nadia", 5, "Teknik Informatika", "Bandung");
+				//simpleService.getMahasiswa();
 			} catch(Exception e){
 				System.out.println("SimpleService checkName() : Exception thrown..");
 			}
