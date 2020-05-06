@@ -11,9 +11,9 @@ public class App {
 			boolean NotExit = true;
 			ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 			SimpleService simpleService = (SimpleService) context.getBean("simpleServiceBean");
-			System.out.println("-------------------------------------");
 			try{
 				while(NotExit) {
+					System.out.println("-------------------------------------");
 					switch(Menu()) {
 						case 1:
 							simpleService.createMahasiswa("18152401", "Nadia", 5, "Teknik Informatika", "Bandung");
@@ -34,15 +34,15 @@ public class App {
 	}
 	
 	public static int Menu() {
+		System.out.println("-------------------------------------");
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("--------------------");
 		System.out.println("Menu :");
 		System.out.println("1. Add Student Data");
 		System.out.println("2. Display Student Data");
 		System.out.println("3. Exit");
 		System.out.print("\nYour choice =");
 		int pilihan = scanner.nextInt();
-		System.out.println("--------------------");
+		System.out.println("-------------------------------------");
 		return pilihan;
 	}
 }
