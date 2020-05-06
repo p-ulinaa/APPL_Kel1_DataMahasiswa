@@ -23,6 +23,7 @@ public class App {
 							simpleService.getMahasiswa();
 							break;
 						case 3:
+							System.out.println("Thankyou");
 							NotExit = false;
 							break;
 					}
@@ -36,7 +37,6 @@ public class App {
 	}
 	
 	public static int Menu() {
-		System.out.println("-------------------------------------");
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Menu :");
 		System.out.println("1. Add Student Data");

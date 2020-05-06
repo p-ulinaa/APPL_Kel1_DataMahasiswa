@@ -51,26 +51,27 @@ public class SimpleServiceImpl implements SimpleService {
  	
  	public Mahasiswa insertMahasiswa() {
  		Scanner sc = new Scanner(System.in);
- 		String idMahasiswa = new ObjectId().toString();
- 		String nim;
- 		String nama; 
- 		int semester;
- 		String jurusan;
- 		String alamat;
- 		
- 		System.out.print("nama     : ");
- 		nama = sc.next();
- 		System.out.print("nim      : ");
- 		nim  = sc.next();
- 		System.out.print("semester : ");
- 		semester = sc.nextInt();
- 		System.out.print("jurusan  : ");
- 		jurusan = sc.next();
- 		System.out.print("alamat   : ");
- 		alamat = sc.next();
- 		
- 		Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester, jurusan, alamat);
- 		return mahasiswa;
+ 	   String idMahasiswa = new ObjectId().toString();
+ 	   String nim;
+ 	   String nama; 
+ 	   int semester;
+ 	   String jurusan;
+ 	   String alamat;
+ 	   
+ 	   System.out.print("nama     : ");
+ 	   nama = sc.nextLine();
+ 	   System.out.print("nim      : ");
+ 	   nim  = sc.next();
+ 	   System.out.print("semester : ");
+ 	   semester = sc.nextInt();
+ 	   sc.nextLine();
+ 	   System.out.print("jurusan  : ");
+ 	   jurusan = sc.nextLine();
+ 	   System.out.print("alamat   : ");
+ 	   alamat = sc.nextLine();
+ 	   
+ 	   Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester, jurusan, alamat);
+ 	   return mahasiswa;
  		
  	}
  	public void getMahasiswa() {		
@@ -80,9 +81,7 @@ public class SimpleServiceImpl implements SimpleService {
 			System.out.println(i + " nama : "+ mahasiswa.getNama());
 			System.out.println("  nim : "+ mahasiswa.getNim());
 			System.out.println("  semester : "+ mahasiswa.getSemester());
-			System.out.println("  nim : "+ mahasiswa.getNim());
 			System.out.println("  jurusan : "+ mahasiswa.getJurusan());
-			System.out.println("  nim : "+ mahasiswa.getNim());
 			System.out.println("  alamat : "+ mahasiswa.getAlamat()+"\n");
 			i++;
 		}		
