@@ -4,6 +4,7 @@ import data.mahasiswa.SimpleService;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoCredential;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.quickstart.models.Mahasiswa;
@@ -40,16 +41,27 @@ public class SimpleServiceImpl implements SimpleService {
  		database = database.withCodecRegistry(pojoCodecRegistry);
  	}
 
- 	public boolean createMahasiswa(String nim,String nama,int semester, String jurusan, String alamat) {
+ 	public void createMahasiswa(String nim,String nama,int semester, String jurusan, String alamat) {
 	 	String idMahasiswa = new ObjectId().toString();
 	 	
-	 	try {
 		 	Mahasiswa mahasiswa = new Mahasiswa(idMahasiswa, nim, nama, semester,jurusan, alamat);
 		 	mahasiswaCollection.insertOne(mahasiswa);
-	 	} catch (Exception e) {
-		 	e.printStackTrace();
-		 	return false;
-	 	}  
-	 	return true;
+	
 	}
+ 	
+ 	public void getMahasiswa() {		
+	 	int i = 1;
+		FindIterable<Mahasiswa> mahasiswaIterable = mahasiswaCollection.find();		
+		for (Mahasiswa mahasiswa : mahasiswaIterable) {
+			System.out.println(i + " nama : "+ mahasiswa.getNama());
+			System.out.println("  nim : "+ mahasiswa.getNim());
+			System.out.println("  semester : "+ mahasiswa.getSemester());
+			System.out.println("  nim : "+ mahasiswa.getNim());
+			System.out.println("  jurusan : "+ mahasiswa.getJurusan());
+			System.out.println("  nim : "+ mahasiswa.getNim());
+			System.out.println("  alamat : "+ mahasiswa.getAlamat()+"\n");
+			i++;
+		}		
+ 	}
+ 	
 }

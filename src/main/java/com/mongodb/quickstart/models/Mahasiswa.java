@@ -14,6 +14,10 @@ public class Mahasiswa{
     private int semester;
     private String jurusan;
     private String alamat;
+    
+    public Mahasiswa() {
+  
+    }
 
     public Mahasiswa(String idMahasiswa, final String nim, final String nama, final int semester, final String jurusan, final String alamat) {
         super();
