@@ -9,15 +9,13 @@ public class App {
 	
 			ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 			SimpleService simpleService = (SimpleService) context.getBean("simpleServiceBean");
-			//
+			
 			System.out.println("---------------");
 			try{
 				boolean A = simpleService.createMahasiswa("18152401", "Alvira", 4, "Teknik Informatika", "Bandung");
 			} catch(Exception e){
 				//System.out.println("SimpleService checkName() : Exception thrown..");
 			}
-			System.out.println("---------------");
-			//simpleService.sayHello("iJavacodegeeks");
 			System.out.println("---------------");
 			context.close();
 	}

@@ -7,11 +7,12 @@ package aspect;
 	@Aspect
 	public class DoAfterAspect {
 	 
-		@After("execution(* com.javacodegeeks.snippets.enterprise.SimpleService.sayHello(..))")
+		@After("execution(* data.mahasiswa.SimpleService.createMahasiswa(..))")
 		public void doAfter(JoinPoint joinPoint) {
 	 
-			System.out.println("***AspectJ*** DoAfter() is running!! intercepted : " + joinPoint.getSignature().getName());
-	 
+			System.out.println("Task\t: " + joinPoint.getSignature().getName());
+			System.out.println("Message\t: Data successfully added");
+			
 		}
 	 
 	}
