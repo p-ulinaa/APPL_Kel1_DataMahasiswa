@@ -1,34 +1,26 @@
 package aspect;
 
-	import java.util.Scanner;
+	import java.util.Arrays;
+import java.util.Scanner;
 
 import org.aspectj.lang.JoinPoint;
-	import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.weaver.ast.Call;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
 
 	@Aspect
 	public class createOperationAspect {
-	 
-		@After("execution(* data.mahasiswa.SimpleService.createMahasiswa(..))")
-		public void doAfter(JoinPoint joinPoint) {
-	 
-			System.out.println("Task\t: " + joinPoint.getSignature().getName());
-			System.out.println("Message\t: Data successfully added");
-			
-		}
-	 
-		@After("execution(* data.mahasiswa.App.A(..))")
-		public void doAfter2(JoinPoint joinPoint) {
-			
-				//Scanner scanner = new Scanner(System.in);
-				System.out.println("--------------------");
-				System.out.println("Menu:");
-				System.out.println("1. Add Data");
-				System.out.println("2. ");
-				//int pilihan = scanner.nextInt();
-				System.out.println("--------------------");
-			
-		}
-	}
 	
+	@Around("execution(* data.mahasiswa.SimpleService.createMahasiswa(..))")
+	public void doAround(ProceedingJoinPoint joinPoint) throws Throwable {
+
+		System.out.println("Task\t: " + joinPoint.getSignature().getName());
+
+		System.out.println("Message\t: Creating Data ...");
+		joinPoint.proceed(); // continue on the intercepted method
+		
+		System.out.println("Message\t: Data successfully added");
+	}
+}
