@@ -46,7 +46,7 @@
 	</dependencies>
 
 	<properties>
-		<spring.version>3.2.3.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<maven-compiler-plugin.source>8</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>8</maven-compiler-plugin.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
